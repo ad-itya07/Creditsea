@@ -64,6 +64,7 @@ export type Payment = {
   amount: number;
   paymentDate: string;
   recordedBy?: { name: string } | string;
+  createdAt?: string;
 };
 
 export type ApiResponse<T> = {

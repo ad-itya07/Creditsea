@@ -249,7 +249,7 @@ function CollectionDetail({ loan, onBack, onRefresh }: { loan: Loan; onBack: () 
               <Metric label="Principal" value={formatCurrency(loan.principal)} />
               <Metric label="Total Repayment" value={formatCurrency(loan.totalRepayment)} />
               <Metric label="Total Paid" value={formatCurrency(loan.totalPaid)} />
-              <Metric label="Outstanding" value={formatCurrency(loan.outstandingAmount)} highlighted={loan.outstandingAmount > 0} />
+              <Metric label="Outstanding" value={formatCurrency(loan.outstandingAmount)} highlighted={(loan.outstandingAmount ?? 0) > 0} />
             </div>
 
             <div className="mt-8 border-t border-border pt-6">
