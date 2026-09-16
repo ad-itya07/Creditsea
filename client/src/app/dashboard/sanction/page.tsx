@@ -358,7 +358,7 @@ function SanctionDetail({
               )}
               {salarySlipUrl?.toLowerCase().endsWith(".pdf") ? (
                 <iframe 
-                  src={`${salarySlipUrl}#view=FitH&toolbar=0`} 
+                  src={`https://docs.google.com/gview?url=${encodeURIComponent(salarySlipUrl)}&embedded=true`} 
                   onLoad={() => setIsMediaLoading(false)}
                   className="w-full h-[600px] rounded border border-slate-300 relative z-0" 
                   title="Salary Slip PDF" 
