@@ -32,7 +32,7 @@ const paymentSchema = new Schema<IPayment>(
     amount: {
       type: Number,
       required: [true, 'Payment amount is required'],
-      min: [1, 'Payment amount must be greater than 0'],
+      min: [0.01, 'Payment amount must be greater than 0'],
     },
     paymentDate: {
       type: Date,
