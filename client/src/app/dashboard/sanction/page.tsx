@@ -357,17 +357,29 @@ function SanctionDetail({
                 </div>
               )}
               {salarySlipUrl?.toLowerCase().endsWith(".pdf") ? (
-                <iframe 
-                  src={`https://docs.google.com/gview?url=${encodeURIComponent(salarySlipUrl)}&embedded=true`} 
-                  onLoad={() => setIsMediaLoading(false)}
-                  className="w-full h-[600px] rounded border border-slate-300 relative z-0" 
-                  title="Salary Slip PDF" 
-                />
+                <div className="flex flex-col items-center gap-4">
+                  <img 
+                    src={salarySlipUrl.replace(/\.pdf$/i, '.png')} 
+                    alt="Salary Slip Preview" 
+                    onLoad={() => setIsMediaLoading(false)}
+                    onError={() => setIsMediaLoading(false)}
+                    className="mx-auto max-w-full rounded border border-slate-300 shadow-sm relative z-0" 
+                  />
+                  <a 
+                    href={salarySlipUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-sm font-medium text-brand hover:underline"
+                  >
+                    Open original PDF document
+                  </a>
+                </div>
               ) : (
                 <img 
                   src={salarySlipUrl} 
                   alt="Salary Slip" 
                   onLoad={() => setIsMediaLoading(false)}
+                  onError={() => setIsMediaLoading(false)}
                   className="mx-auto max-w-full rounded border border-slate-300 shadow-sm relative z-0" 
                 />
               )}
