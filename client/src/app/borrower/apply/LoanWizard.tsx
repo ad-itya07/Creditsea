@@ -147,6 +147,14 @@ export function LoanWizard({
       setFilePreview(null);
       return;
     }
+    
+    if (selected.size > 5 * 1024 * 1024) {
+      setError("File size must be less than 5MB");
+      e.target.value = "";
+      return;
+    }
+
+    clearFeedback();
     setFile(selected);
     setFilePreview(URL.createObjectURL(selected));
   };

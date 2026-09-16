@@ -357,23 +357,12 @@ function SanctionDetail({
                 </div>
               )}
               {salarySlipUrl?.toLowerCase().endsWith(".pdf") ? (
-                <div className="flex flex-col items-center gap-4">
-                  <img 
-                    src={salarySlipUrl.replace(/\.pdf$/i, '.png')} 
-                    alt="Salary Slip Preview" 
-                    onLoad={() => setIsMediaLoading(false)}
-                    onError={() => setIsMediaLoading(false)}
-                    className="mx-auto max-w-full rounded border border-slate-300 shadow-sm relative z-0" 
-                  />
-                  <a 
-                    href={salarySlipUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sm font-medium text-brand hover:underline"
-                  >
-                    Open original PDF document
-                  </a>
-                </div>
+                <iframe 
+                  src={`${salarySlipUrl}#view=FitH&toolbar=0`} 
+                  onLoad={() => setIsMediaLoading(false)}
+                  className="w-full h-[600px] rounded border border-slate-300 relative z-0" 
+                  title="Salary Slip PDF" 
+                />
               ) : (
                 <img 
                   src={salarySlipUrl} 
